@@ -1,0 +1,12 @@
+# SmartBus - Production Web Server Configuration
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Prevent public direct downloading of the SQLite database
+    <FilesMatch "\.(sqlite|db|sql)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+
+    DirectoryIndex index.php index.html
+</IfModule>
